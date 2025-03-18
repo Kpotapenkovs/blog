@@ -18,4 +18,10 @@
 
   </form>
 
+  <ul>
+    @foreach ($blog->contents as $content)
+      <li><br><a href="/blogs/contents/{{ $content->id }}">{{ $content->contents }}</a><hr></li>
+    @endforeach
+  </ul>
+
 </x-layout>
