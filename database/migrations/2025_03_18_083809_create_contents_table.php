@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string("contents");
             $table->timestamps();
+            $table->foreignId('blog_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
@@ -25,4 +30,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('contents');
     }
+
+    
 };
