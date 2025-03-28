@@ -30,6 +30,8 @@ Route::get('/blogs/contents/{contents}/edit', [ContentController::class, 'edit']
 
 Route::get('/blogs/create', [BlogController::class, 'create']);
 
+Route::get('/blogs/{blogs_id}/create', [ContentController::class, 'create']);
+
 
     Route::get('/blogs/{blog}', [BlogController::class, 'show']);
 
@@ -37,6 +39,8 @@ Route::get('/blogs/create', [BlogController::class, 'create']);
 
 
 Route::put('/blogs/{blog}', [BlogController::class, 'update']);
+
+Route::put('/blogs/{blogs_id}', [ContentController::class, 'update']);
 
 Route::put('/blogs/contents/{contents}', [ContentController::class, 'update']);
 

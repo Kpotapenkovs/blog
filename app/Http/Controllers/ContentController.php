@@ -22,16 +22,20 @@ class ContentController extends Controller
         return view("blogs.contents.edit", compact("contents"));
       }
 
+
+      public function create(content $contents) {
+        return view("blogs.contents.create", compact("contents"));
+      }
+
       public function store(Request $request) {
         
         $validated = $request->validate([
             "contents" => ["required", "max:255"]
           ]);
         
-        Blog::create([
+        Content::create([
             "contents" => $request->contents
           ]);
-        
         return redirect("/blogs/{blogs_id}");
     }
       
@@ -40,10 +44,15 @@ class ContentController extends Controller
         $validated = $request->validate([
           "contents" => ["required", "max:255"]
         ]);
-  
+         
         $contents->contents = $validated["contents"];
         $contents->save();
-        dd($contents);
+        return redirect("/blogs/{blogs_id}");
+      }
+
+
+      public function destroy(content $contents){
+        $contents->delete();
         return redirect("/blogs/{blogs_id}");
       }
 }

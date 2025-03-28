@@ -4,7 +4,7 @@
 rediģēt
 </x-slot:title>
 
-<form method="POST" action="/blogs/contents/{{ $contents->id }}">
+<form method="POST" action="/blogs/{{ $contents->id }}">
 
 @csrf
 
@@ -13,7 +13,7 @@ rediģēt
 <label>
 <br>
 rediģēt: 
-<input name="content" value="{{$contents->contents}}"/>
+<input name="contents" value="{{$contents->contents}}"/>
 @error("content")
   <p>{{ $message }}</p>
 @enderror

@@ -14,6 +14,5 @@ class Blog extends Model
   {
       return $this->hasMany(Content::class);
   }
-
 }
 
